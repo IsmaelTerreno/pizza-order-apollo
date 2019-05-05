@@ -12,6 +12,7 @@ class PizzaList extends Component{
         return (
             <div className="pizza-list">
                 {
+                    pizzas.length > 0 &&
                     pizzas.map((pizza, idx) => {
                         return (
                             <p className="pizza-list__item" key={"pizza-item"+idx}>{pizza.name}</p>
