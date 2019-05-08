@@ -1,4 +1,4 @@
-import { LOAD_PIZZAS_SUCCESS } from "../actions/pizzas";
+import { LOAD_PIZZAS_SUCCESS } from "../actions/pizza";
 
 const initState = { list: []};
 

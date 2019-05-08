@@ -1,5 +1,5 @@
 import PizzaList from '../component/PizzaList';
-import { loadPizzas } from '../redux/actions/pizzas';
+import { loadPizzas } from '../redux/actions/pizza';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({

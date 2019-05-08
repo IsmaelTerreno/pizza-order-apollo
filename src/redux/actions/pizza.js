@@ -17,7 +17,7 @@ export function loadPizzasSuccess(pizzas) {
 
 export function loadPizzasFail(message) {
   return {
-    type: LOAD_PIZZAS_SUCCESS,
+    type: LOAD_PIZZAS_FAIL,
     message
   };
 }

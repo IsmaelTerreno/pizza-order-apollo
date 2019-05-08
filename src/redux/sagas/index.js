@@ -1,5 +1,5 @@
 import { takeEvery, all, put, call } from 'redux-saga/effects';
-import {LOAD_PIZZAS, loadPizzasSuccess, loadPizzasFail} from "../actions/pizzas";
+import {LOAD_PIZZAS, loadPizzasSuccess, loadPizzasFail} from "../actions/pizza";
 import { findPizzasApi } from '../../graphql-client/index';
 
 function* findPizzasSaga(action) {
