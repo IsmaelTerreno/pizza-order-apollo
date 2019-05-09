@@ -14,11 +14,19 @@ class PizzaList extends Component{
 
     render() {
         const { pizzas } = this.props;
+        const hasPizzas = pizzas && pizzas.length > 0;
         return (
             <div className="pizza-menu-list">
-                <h3>Pizzas</h3>
                 {
-                    pizzas &&
+                    hasPizzas &&
+                    <h3>Pizzas</h3>
+                }
+                {
+                    !hasPizzas &&
+                    <h1>Loading pizzas for you :)...</h1>
+                }
+                {
+                    hasPizzas &&
                     pizzas.map((pizza, idx) => {
                         const { name, basePrice} = pizza;
                         return (
