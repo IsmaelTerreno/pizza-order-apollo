@@ -28,10 +28,12 @@ class ToppingSelector extends Component{
         const { currentPizza:{maxToppings},toppings } = this.props;
         const selectedCount = toppings && toppings.filter(item => item.defaultSelected).length;
         const isMaxAlready = !(selectedCount < maxToppings) && (maxToppings);
-        const isToppins = toppings.length > 0;
+        const isToppings = toppings.length > 0;
+        const maxToppingLabel = (maxToppings) ? maxToppings :'Unlimited';
         return (
             <div className="topping-selector">
-                { isToppins && <h3>Toppings Menu</h3> }
+                { isToppings && <h3>Toppings Menu</h3> }
+                { isToppings && <h5>Max allowed - {maxToppingLabel}</h5> }
                 {
                     toppings &&
                     toppings.map((pizzaTopping, idx2) => {
