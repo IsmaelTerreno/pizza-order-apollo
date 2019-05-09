@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 
 class ToppingSelector extends Component{
 
@@ -28,9 +28,10 @@ class ToppingSelector extends Component{
         const { currentPizza:{maxToppings},toppings } = this.props;
         const selectedCount = toppings && toppings.filter(item => item.defaultSelected).length;
         const isMaxAlready = !(selectedCount < maxToppings) && (maxToppings);
+        const isToppins = toppings.length > 0;
         return (
             <div className="topping-selector">
-
+                { isToppins && <h3>Toppings Menu</h3> }
                 {
                     toppings &&
                     toppings.map((pizzaTopping, idx2) => {
@@ -48,6 +49,10 @@ class ToppingSelector extends Component{
                         );
                     })
                 }
+                {isToppins &&
+                <Button variant="primary" type="submit">
+                    Add to Cart
+                </Button>}
             </div>
         );
     }

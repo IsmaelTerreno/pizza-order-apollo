@@ -14,9 +14,7 @@ class PizzaForm extends Component{
             <h3>Total Calculated</h3>
             <Form>
 
-                <Button variant="primary" type="submit">
-                    Submit Order
-                </Button>
+
             </Form>
         </div>
     );
