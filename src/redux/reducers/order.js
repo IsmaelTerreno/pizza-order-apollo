@@ -6,6 +6,8 @@ export default function(state = initState, action) {
         case ADD_PIZZA_ORDER:
             return {
                 ...state,
+                toppings:[],
+                currentPizza: {},
                 list: [
                     ...state.list,
                     action.payload
