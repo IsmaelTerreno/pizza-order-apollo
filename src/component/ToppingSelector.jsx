@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Button, Form} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 
 class ToppingSelector extends Component{
 
@@ -49,10 +49,6 @@ class ToppingSelector extends Component{
                         );
                     })
                 }
-                {isToppins &&
-                <Button variant="primary" type="submit">
-                    Add to Cart
-                </Button>}
             </div>
         );
     }

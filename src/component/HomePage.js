@@ -1,6 +1,8 @@
 import React from "react";
 import PizzaList from '../container/PizzaListContainer';
-import PizzaForm from "./PizzaForm";
+import ActionButtons from '../container/ActionButtonsContainer';
+import ToppingSelector from '../container/ToppingSelectorContainer';
+import TotalOrder from '../container/TotalOrderContainer';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const HomePage = () => {
@@ -21,8 +23,16 @@ const HomePage = () => {
                     </Col>
                     <Col>
                         <section>
-                            <PizzaForm pizza={null}/>
+                            <ToppingSelector />
                         </section>
+                        <section>
+                            <ActionButtons/>
+                        </section>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <TotalOrder/>
                     </Col>
                 </Row>
             </Container>

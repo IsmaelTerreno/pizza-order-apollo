@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import ToppingSelector from "../container/ToppingSelectorContainer";
 
 class PizzaList extends Component{
 
@@ -35,7 +34,6 @@ class PizzaList extends Component{
                         );
                     })
                 }
-                <ToppingSelector />
             </div>
         );
     }
