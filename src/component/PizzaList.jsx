@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'react-bootstrap';
-import ToppingSelector from "./ToppingSelector";
+import { Button } from 'react-bootstrap';
+import ToppingSelector from "../container/ToppingSelectorContainer";
 
 class PizzaList extends Component{
 
@@ -9,50 +9,33 @@ class PizzaList extends Component{
         this.props.loadPizzas();
     }
 
+    onClickPizza= (pizza) => {
+        this.props.setCurrentPizzaOrder(pizza);
+    };
+
     render() {
         const { pizzas } = this.props;
         return (
-            <div className="pizza-list">
-                <Table striped bordered hover>
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name - Price</th>
-                        <th>Max Toppings</th>
-                        <th>Toppings - Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {
-                        pizzas &&
-                        pizzas.map((pizza, idx) => {
-                            const { name, basePrice, maxToppings, toppings} = pizza;
-                            return (
-                                <tr className="pizza-list__item" key={"pizza-item"+idx} >
-                                    <td>
-                                        {idx + 1}
-                                    </td>
-                                    <td>
-                                        {name} - ${basePrice}
-                                    </td>
-                                    <td>
-                                        {(maxToppings) ? maxToppings :'Unlimited'}
-                                    </td>
-                                    <td>
-                                        <ToppingSelector
-                                            maxToppings={maxToppings}
-                                            toppings={toppings}
-                                            onChangeTopping={(updatedToppings) =>{
-
-                                            }}
-                                        />
-                                    </td>
-                                </tr>
-                            );
-                        })
-                    }
-                    </tbody>
-                </Table>
+            <div className="pizza-menu-list">
+                {
+                    pizzas &&
+                    pizzas.map((pizza, idx) => {
+                        const { name, basePrice} = pizza;
+                        return (
+                            <Fragment key={"pizza-item"+idx} >
+                                <Button
+                                    variant="primary"
+                                    size="lg"
+                                    block
+                                    onClick={()=>this.onClickPizza(pizza)}
+                                >
+                                    {name.toUpperCase()} - ${basePrice}
+                                </Button>
+                            </Fragment>
+                        );
+                    })
+                }
+                <ToppingSelector />
             </div>
         );
     }
@@ -61,6 +44,8 @@ class PizzaList extends Component{
 PizzaList.propTypes = {
     pizzas: PropTypes.array,
     loadPizzas: PropTypes.func,
+    addPizzaOrder: PropTypes.func,
+    setCurrentPizzaOrder: PropTypes.func,
 };
 
 export default PizzaList;

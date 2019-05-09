@@ -3,26 +3,18 @@ import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 
 class ToppingSelector extends Component{
-    state = {
-       allToppings:[]
-    };
-    componentWillMount() {
-        const { toppings } = this.props;
-        this.setState({
-            allToppings: toppings
-        });
-    }
+
     handleChange = (event) => {
         const { target:{checked, id} } = event;
-        const { onChangeTopping } = this.props;
-        const toppings = this.state.allToppings.slice();
+        const { setCurrentPizzaOrder, currentPizza, updateToppingOrder, toppings } = this.props;
+        const toppingsToUpdate = toppings.slice();
         const indexTopping = id.split('-')[1];
-        toppings[indexTopping].defaultSelected = checked;
-        const updatedToppings = toppings.slice();
-        this.setState({
-            allToppings: updatedToppings
-        });
-        onChangeTopping(updatedToppings);
+        toppingsToUpdate[indexTopping].defaultSelected = checked;
+        const updatedToppings = toppingsToUpdate.slice();
+        updateToppingOrder(updatedToppings);
+        const pizzaUpdated = Object.assign({}, currentPizza);
+        pizzaUpdated.toppings = updatedToppings;
+        setCurrentPizzaOrder(pizzaUpdated);
     };
     isDisabled = (isMaxAlready, defaultSelected) =>{
         if (isMaxAlready && defaultSelected){
@@ -33,15 +25,15 @@ class ToppingSelector extends Component{
         return false;
     };
     render() {
-        const { allToppings } = this.state;
-        const { maxToppings } = this.props;
-        const selectedCount = allToppings.filter(item => item.defaultSelected).length;
+        const { currentPizza:{maxToppings},toppings } = this.props;
+        const selectedCount = toppings && toppings.filter(item => item.defaultSelected).length;
         const isMaxAlready = !(selectedCount < maxToppings) && (maxToppings);
         return (
             <div className="topping-selector">
+
                 {
-                    allToppings &&
-                    allToppings.map((pizzaTopping, idx2) => {
+                    toppings &&
+                    toppings.map((pizzaTopping, idx2) => {
                         const { pizzaSize,topping:{name, price}, defaultSelected } = pizzaTopping;
                         return(
                             <Form.Check
@@ -62,15 +54,16 @@ class ToppingSelector extends Component{
 }
 
 ToppingSelector.defaultProps = {
-    toppings: [],
-    maxToppings: -1,
-    onChangeTopping: (updatedToppings) =>{}
+    currentPizza: {maxToppings: -1 },
+    setCurrentPizzaOrder: (pizza) =>{},
+    toppings: []
 };
 
 ToppingSelector.propTypes = {
+    currentPizza: PropTypes.object,
     toppings: PropTypes.array,
-    maxToppings: PropTypes.number,
-    onChangeTopping: PropTypes.func
+    setCurrentPizzaOrder: PropTypes.func,
+    updateToppingOrder: PropTypes.func,
 };
 
 export default ToppingSelector;

@@ -9,8 +9,6 @@ class PizzaForm extends Component{
     }
 
     render() {
-        const { pizza } = this.props;
-        console.log(pizza);
         return (
         <div className="pizza-form">
             <h3>Total Calculated</h3>

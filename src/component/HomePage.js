@@ -15,7 +15,7 @@ const HomePage = () => {
                 <Row>
                     <Col>
                         <section>
-                            <h3>Menu</h3>
+                            <h3>Pizzas Menu</h3>
                             <PizzaList/>
                         </section>
                     </Col>
