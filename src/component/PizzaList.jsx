@@ -16,6 +16,7 @@ class PizzaList extends Component{
         const { pizzas } = this.props;
         return (
             <div className="pizza-menu-list">
+                <h3>Pizzas</h3>
                 {
                     pizzas &&
                     pizzas.map((pizza, idx) => {

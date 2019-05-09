@@ -11,13 +11,12 @@ const HomePage = () => {
             <Container>
                 <Row>
                     <Col>
-                        <h1>Pizza Cart</h1>
+                        <h1>Pizza Menu Cart</h1>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                         <section>
-                            <h3>Pizzas Menu</h3>
                             <PizzaList/>
                         </section>
                     </Col>
