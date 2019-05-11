@@ -10,6 +10,7 @@ class PizzaList extends Component{
 
     onClickPizza= (pizza) => {
         this.props.setCurrentPizzaOrder(pizza);
+        this.props.updateToppingOrder(pizza.toppings);
     };
 
     render() {
@@ -53,6 +54,7 @@ PizzaList.propTypes = {
     loadPizzas: PropTypes.func,
     addPizzaOrder: PropTypes.func,
     setCurrentPizzaOrder: PropTypes.func,
+    updateToppingOrder: PropTypes.func,
 };
 
 export default PizzaList;

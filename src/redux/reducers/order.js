@@ -16,8 +16,7 @@ export default function(state = initState, action) {
         case SET_CURRENT_PIZZA_ORDER:
             return {
                 ...state,
-                currentPizza: action.payload,
-                toppings: action.payload.toppings
+                currentPizza: action.payload
             };
         case UPDATE_TOPPING_ORDER:
             return {
