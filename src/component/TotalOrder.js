@@ -53,12 +53,12 @@ const TotalOrder = ({pizzaOrderList}) =>{
                     })
                 }
                 <tr>
-                    <td>
+                    <td colSpan={4}>
                         <strong>Total</strong>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colSpan={4}>
                         <strong>${totalOrder.toFixed(2)}</strong>
                     </td>
                 </tr>
