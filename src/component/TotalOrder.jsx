@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Table} from 'react-bootstrap';
-
+import './TotalOrder.scss';
 
 const TotalOrder = ({pizzaOrderList, deletePizzaFromOrder}) =>{
     const hasPizzasOrders = pizzaOrderList && pizzaOrderList.length > 0;
     let totalOrder = 0;
     return (
         <div className="total-order">
-            { hasPizzasOrders && <h3>Order Details</h3> }
+            { hasPizzasOrders && <h3>Cart Details</h3> }
             { hasPizzasOrders &&
             <Table striped bordered hover>
                 <thead>
@@ -31,7 +31,7 @@ const TotalOrder = ({pizzaOrderList, deletePizzaFromOrder}) =>{
                         const subTotal = basePrice + toppingsTotal;
                         totalOrder += subTotal;
                         return (
-                            <tr className="pizza-list__item" key={"pizza-item"+idx} >
+                            <tr className="pizza-order-list__item" key={"pizza-item"+idx} >
                                 <td>
                                     {idx + 1}
                                 </td>
@@ -40,9 +40,9 @@ const TotalOrder = ({pizzaOrderList, deletePizzaFromOrder}) =>{
                                 </td>
                                 <td>
                                     {
-                                        toppingsSelected.map((toppingItem)=>{
+                                        toppingsSelected.map((toppingItem, idx)=>{
                                             return (
-                                                <p>{toppingItem.topping.name} - ${toppingItem.topping.price.toFixed(2)}</p>
+                                                <p key={"topping-order-item-"+idx}>{toppingItem.topping.name} - ${toppingItem.topping.price.toFixed(2)}</p>
                                             );
                                         })
                                     }
@@ -51,7 +51,7 @@ const TotalOrder = ({pizzaOrderList, deletePizzaFromOrder}) =>{
                                     ${subTotal.toFixed(2)}
                                 </td>
                                 <td>
-                                    <Fragment key={"pizza-item"+idx} >
+                                    <Fragment>
                                         <Button
                                             variant="danger"
                                             size="lg"
@@ -70,12 +70,7 @@ const TotalOrder = ({pizzaOrderList, deletePizzaFromOrder}) =>{
                 }
                 <tr>
                     <td colSpan={5}>
-                        <strong>Total</strong>
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan={5}>
-                        <strong>${totalOrder.toFixed(2)}</strong>
+                        <strong>Total ${totalOrder.toFixed(2)}</strong>
                     </td>
                 </tr>
                 </tbody>

@@ -22,7 +22,7 @@ class PizzaList extends Component{
             <div className="pizza-menu-list">
                 {
                     hasPizzas &&
-                    <h3>Pizzas</h3>
+                    <h3>Sizes</h3>
                 }
                 {
                     !hasPizzas &&

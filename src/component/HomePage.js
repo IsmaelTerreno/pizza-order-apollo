@@ -11,7 +11,7 @@ const HomePage = () => {
             <Container>
                 <Row>
                     <Col>
-                        <h1>Pizza Menu Cart</h1>
+                        <h1>Pizza Menu</h1>
                     </Col>
                 </Row>
                 <Row>

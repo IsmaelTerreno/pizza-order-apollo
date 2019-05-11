@@ -33,7 +33,7 @@ class ToppingSelector extends Component{
         return (
             <div className="topping-selector">
                 { isToppings && <h3>Toppings for {name.toUpperCase()}</h3> }
-                { isToppings && <h5>Max allowed - {maxToppingLabel}</h5> }
+                { isToppings && <h5>Max allowed: {maxToppingLabel}</h5> }
                 {
                     toppings &&
                     toppings.map((pizzaTopping, idx2) => {
