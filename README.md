@@ -1,7 +1,7 @@
 # pizza-order-react-apollo
 Pizza to manage orders using React + Redux + Sagas + Apollo client for Graphql.
 
-## Use case - Problem Statement :pizza:
+## Use case - Problem Statement for pizza cart.
 We have a TON of :pizza: and a GraphQL API but no way for pizza lovers to actually order their 'za! Your goal is to design a pizza order form using React. Pizza lovers need to be able to add pizzas to a "Pizza Cart" (i.e. a list of pizzas they've submitted) and be able to view all the pies they've submitted to their "Pizza Cart"!
 
 ## Requirements
@@ -18,3 +18,18 @@ We have a TON of :pizza: and a GraphQL API but no way for pizza lovers to actual
 #### Relaeted Reading
 - https://graphql.github.io/learn
 - https://cooking.nytimes.com/guides/1-how-to-make-pizza
+
+## How to run the app
+To run the app follow these steps:
+1. Clone the git repository on your local with "git clone https://github.com/IsmaelTerreno/pizza-order-apollo.git".
+2. Go to the project folder and run the command "yarn install".
+3. In the same folder run the command "yarn start".
+4. Go to your browser at "http://localhost:3000/" and that's all. :)
+
+Here is a demo video following the steps for more details:
+- https://drive.google.com/file/d/1K12gaPj7gbD2YIHPKY5HZuKO54_wI8-a/view
+
+## How I can use the demo app
+Here is a demo video using the demo app and making some playground to show some functionality:
+
+- https://drive.google.com/file/d/11SugDJdQ0iZR91DsS8t1gwabzSTE8_ZW/view 
