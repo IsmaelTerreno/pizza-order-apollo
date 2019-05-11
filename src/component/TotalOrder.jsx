@@ -16,6 +16,7 @@ const TotalOrder = ({pizzaOrderList}) =>{
                         <th>Name - Price</th>
                         <th>Toppings - Price</th>
                         <th>Sub Total</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,9 @@ const TotalOrder = ({pizzaOrderList}) =>{
                                 </td>
                                 <td>
                                     ${subTotal.toFixed(2)}
+                                </td>
+                                <td>
+
                                 </td>
                             </tr>
                         );
