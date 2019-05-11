@@ -2,6 +2,10 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
+const newCopy = (objectToCopy) =>{
+    return JSON.parse(JSON.stringify( objectToCopy ));
+};
+
 class PizzaList extends Component{
 
     componentWillMount() {
@@ -9,8 +13,10 @@ class PizzaList extends Component{
     }
 
     onClickPizza= (pizza) => {
-        this.props.setCurrentPizzaOrder(pizza);
-        this.props.updateToppingOrder(pizza.toppings);
+        const selectedPizza = newCopy( pizza );
+        const selectedToppings = newCopy( pizza.toppings );
+        this.props.setCurrentPizzaOrder(selectedPizza);
+        this.props.updateToppingOrder(selectedToppings);
     };
 
     render() {
