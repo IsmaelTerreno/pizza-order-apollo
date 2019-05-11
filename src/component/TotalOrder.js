@@ -7,7 +7,7 @@ const TotalOrder = ({pizzaOrderList}) =>{
     let totalOrder = 0;
     return (
         <div className="total-order">
-            { hasPizzasOrders && <h3>Total Order</h3> }
+            { hasPizzasOrders && <h3>Order Details</h3> }
             { hasPizzasOrders &&
             <Table striped bordered hover>
                 <thead>
