@@ -52,16 +52,16 @@ const TotalOrder = ({pizzaOrderList}) =>{
                         );
                     })
                 }
-                <td>
-                    <tr>
+                <tr>
+                    <td>
                         <strong>Total</strong>
-                    </tr>
-                </td>
-                <td>
-                    <tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <strong>${totalOrder.toFixed(2)}</strong>
-                    </tr>
-                </td>
+                    </td>
+                </tr>
                 </tbody>
             </Table>
             }
