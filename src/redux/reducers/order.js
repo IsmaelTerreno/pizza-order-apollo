@@ -1,4 +1,6 @@
-import { ADD_PIZZA_ORDER, SET_CURRENT_PIZZA_ORDER, UPDATE_TOPPING_ORDER } from "../actions/order";
+import { ADD_PIZZA_ORDER, SET_CURRENT_PIZZA_ORDER, UPDATE_TOPPING_ORDER, DELETE_PIZZA_FROM_ORDER } from "../actions/order";
+import {newCopy} from "../../utils/utils";
+
 const initState = { list: [], toppings: [], currentPizza: {} };
 
 export default function(state = initState, action) {
@@ -12,6 +14,13 @@ export default function(state = initState, action) {
                     ...state.list,
                     action.payload
                 ]
+            };
+        case DELETE_PIZZA_FROM_ORDER:
+            const orders = newCopy(state.list);
+            orders.splice(action.payload, 1);
+            return {
+                ...state,
+                list: orders
             };
         case SET_CURRENT_PIZZA_ORDER:
             return {

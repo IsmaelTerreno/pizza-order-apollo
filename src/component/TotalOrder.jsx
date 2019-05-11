@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Table} from 'react-bootstrap';
+import {Button, Table} from 'react-bootstrap';
 
-const TotalOrder = ({pizzaOrderList}) =>{
+
+const TotalOrder = ({pizzaOrderList, deletePizzaFromOrder}) =>{
     const hasPizzasOrders = pizzaOrderList && pizzaOrderList.length > 0;
     let totalOrder = 0;
     return (
@@ -50,7 +51,18 @@ const TotalOrder = ({pizzaOrderList}) =>{
                                     ${subTotal.toFixed(2)}
                                 </td>
                                 <td>
-
+                                    <Fragment key={"pizza-item"+idx} >
+                                        <Button
+                                            variant="danger"
+                                            size="lg"
+                                            block
+                                            onClick={()=> {
+                                                deletePizzaFromOrder(idx);
+                                            }}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </Fragment>
                                 </td>
                             </tr>
                         );
@@ -78,7 +90,8 @@ TotalOrder.defaultProps = {
 };
 
 TotalOrder.propTypes = {
-    pizzaOrderList: PropTypes.array
+    pizzaOrderList: PropTypes.array,
+    deletePizzaFromOrder:  PropTypes.func,
 };
 
 export default TotalOrder;

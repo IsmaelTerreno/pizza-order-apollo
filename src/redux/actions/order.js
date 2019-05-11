@@ -1,8 +1,7 @@
 export const ADD_PIZZA_ORDER = "ADD_PIZZA_ORDER";
-export const ADD_PIZZA_ORDER_SUCCESS = "ADD_PIZZA_ORDER_SUCCESS";
-export const ADD_PIZZA_ORDER_FAIL = "ADD_PIZZA_ORDER_FAIL";
 export const UPDATE_TOPPING_ORDER = "UPDATE_TOPPING_ORDER";
 export const SET_CURRENT_PIZZA_ORDER = "SET_CURRENT_PIZZA_ORDER";
+export const DELETE_PIZZA_FROM_ORDER = "DELETE_PIZZA_FROM_ORDER";
 
 
 export function setCurrentPizzaOrder(pizza) {
@@ -26,15 +25,10 @@ export function addPizzaOrder(pizza) {
     };
 }
 
-export function addPizzaOrderSuccess() {
+export function deletePizzaFromOrder(indexToRemove) {
     return {
-        type: ADD_PIZZA_ORDER_SUCCESS
+        type: DELETE_PIZZA_FROM_ORDER,
+        payload: indexToRemove
     };
 }
 
-export function addPizzaOrderFail(message) {
-    return {
-        type: ADD_PIZZA_ORDER_FAIL,
-        message
-    };
-}
