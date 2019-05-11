@@ -1,11 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-
-const newCopy = (objectToCopy) =>{
-    return JSON.parse(JSON.stringify( objectToCopy ));
-};
-
+import { newCopy } from '../utils/utils'
 class PizzaList extends Component{
 
     componentWillMount() {
